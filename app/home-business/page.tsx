@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { CtaBand, Faq, faqSchema, JsonLd } from '@/components/bits';
+import { CtaBand, Faq, faqSchema, JsonLd, Points } from '@/components/bits';
 import { Hero } from '@/components/hero';
-import { WindowPhoto } from '@/components/photo';
+import { Photo, WindowPhoto } from '@/components/photo';
 import { QuoteForm } from '@/components/quote-form';
-import { TintCompare } from '@/components/tint-compare';
 import { BUSINESS } from '@/data/business';
 import { GALLERY, MEDIA } from '@/data/media';
 import { pageMetadata } from '@/lib/site';
@@ -103,26 +102,17 @@ export default function HomeBusinessPage() {
             <p className="lead">How much each one improves depends on the film you pick. We’ll match the film to the problem.</p>
           </div>
           <div className="split" style={{ alignItems: 'start' }}>
-            <ol className="points" style={{ marginTop: 0 }}>
-              <li>
-                <strong>Heat</strong>
-                <p>Film reflects and absorbs part of the sun’s energy before it gets into the room, so it heats up slower and the AC runs less hard.</p>
-              </li>
-              <li>
-                <strong>Glare</strong>
-                <p>Cuts the bright patch on the TV, the monitor, and the kitchen counter.</p>
-              </li>
-              <li>
-                <strong>Daytime privacy</strong>
-                <p>Reflective film mirrors the yard back at anyone looking in during the day. You can see the brick-and-yard reflection in the photos on this page.</p>
-              </li>
-              <li>
-                <strong>Fading</strong>
-                <p>Window film blocks most UV light, one of the main causes of faded floors, rugs, and furniture.</p>
-              </li>
-            </ol>
+            <Points
+              style={{ marginTop: 0 }}
+              items={[
+                { icon: 'heat', title: 'Heat', text: 'Film reflects and absorbs part of the sun’s energy before it gets into the room, so it heats up slower and the AC runs less hard.' },
+                { icon: 'glare', title: 'Glare', text: 'Cuts the bright patch on the TV, the monitor, and the kitchen counter.' },
+                { icon: 'privacy', title: 'Daytime privacy', text: 'Reflective film mirrors the yard back at anyone looking in during the day. You can see the brick-and-yard reflection in the photos on this page.' },
+                { icon: 'uv', title: 'Fading', text: 'Window film blocks most UV light, one of the main causes of faded floors, rugs, and furniture.' },
+              ]}
+            />
             <div data-reveal="">
-              <TintCompare k="brickWindow" note="Drag the bar. The darker side is a simulation to show the idea, not a specific film." />
+              <Photo k="transomReflective" className="still" caption sizes="(min-width: 900px) 50vw, 100vw" />
             </div>
           </div>
         </div>
@@ -145,20 +135,13 @@ export default function HomeBusinessPage() {
               A wall of west-facing glass makes a lobby hot and a front desk hard to work at. Film evens out the light and keeps
               the front of the building looking uniform from the parking lot.
             </p>
-            <ol className="points">
-              <li>
-                <strong>Comfort for staff and customers</strong>
-                <p>Fewer hot spots by the windows.</p>
-              </li>
-              <li>
-                <strong>Screens you can read</strong>
-                <p>Less glare on registers and monitors.</p>
-              </li>
-              <li>
-                <strong>A cleaner front</strong>
-                <p>Mismatched or peeling old film comes off and the whole storefront gets one even look.</p>
-              </li>
-            </ol>
+            <Points
+              items={[
+                { icon: 'people', title: 'Comfort for staff and customers', text: 'Fewer hot spots by the windows.' },
+                { icon: 'screen', title: 'Screens you can read', text: 'Less glare on registers and monitors.' },
+                { icon: 'storefront', title: 'A cleaner front', text: 'Mismatched or peeling old film comes off and the whole storefront gets one even look.' },
+              ]}
+            />
           </div>
         </div>
       </section>

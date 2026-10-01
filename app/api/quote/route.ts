@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import { cleanQuote, quoteSummary, validateQuote, type QuoteValues } from '@/lib/quote';
 
 // Sends quote requests by email through Resend when RESEND_API_KEY and QUOTE_TO_EMAIL are set.
-// Without them, requests are validated and logged so the form can be demoed.
+// Without them, preview and local builds log the request so the form can be demoed, but production
+// returns an error so the visitor is told to call instead of seeing a thank-you for a lost request.
 export async function POST(req: Request) {
   let body: QuoteValues;
   try {
@@ -21,6 +22,9 @@ export async function POST(req: Request) {
   const to = process.env.QUOTE_TO_EMAIL;
   if (!key || !to) {
     console.info('[quote] email delivery not configured\n' + quoteSummary(values));
+    if (process.env.VERCEL_ENV === 'production') {
+      return NextResponse.json({ ok: false, error: 'Email delivery not configured' }, { status: 503 });
+    }
     return NextResponse.json({ ok: true, delivered: false });
   }
 

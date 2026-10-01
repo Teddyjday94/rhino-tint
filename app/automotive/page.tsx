@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CtaBand, Faq, faqSchema, JsonLd } from '@/components/bits';
+import { CtaBand, Faq, faqSchema, JsonLd, Points } from '@/components/bits';
+import { Icon } from '@/components/icons';
 import { Hero } from '@/components/hero';
 import { Photo } from '@/components/photo';
 import { QuoteForm } from '@/components/quote-form';
@@ -76,24 +77,14 @@ export default function AutomotivePage() {
               <br />
               <span className="red">and a cleaner look</span>
             </h2>
-            <ol className="points">
-              <li>
-                <strong>Comfort</strong>
-                <p>Film cuts the heat coming through the glass, so the cab cools down faster after the truck sits in a parking lot all day.</p>
-              </li>
-              <li>
-                <strong>Glare</strong>
-                <p>Less squinting into a low sun on the drive home, and a windshield strip handles the worst of it.</p>
-              </li>
-              <li>
-                <strong>Privacy</strong>
-                <p>Tools, bags, and car seats are harder to see from outside.</p>
-              </li>
-              <li>
-                <strong>UV</strong>
-                <p>Window film blocks most UV light, which slows fading and cracking on seats and dashboards.</p>
-              </li>
-            </ol>
+            <Points
+              items={[
+                { icon: 'heat', title: 'Comfort', text: 'Film cuts the heat coming through the glass, so the cab cools down faster after the truck sits in a parking lot all day.' },
+                { icon: 'glare', title: 'Glare', text: 'Less squinting into a low sun on the drive home, and a windshield strip handles the worst of it.' },
+                { icon: 'privacy', title: 'Privacy', text: 'Tools, bags, and car seats are harder to see from outside.' },
+                { icon: 'uv', title: 'UV', text: 'Window film blocks most UV light, which slows fading and cracking on seats and dashboards.' },
+              ]}
+            />
           </div>
           <div className="meet-photo" data-reveal="">
             <Photo k="silveradoHd" sizes="(min-width: 900px) 42vw, 100vw" caption parallax={12} />
@@ -149,28 +140,32 @@ export default function AutomotivePage() {
           <h2 id="process" style={{ marginBottom: 'clamp(32px, 5vw, 56px)' }}>
             From call <span className="red">to pickup</span>
           </h2>
-          <ol className="process">
+          <ul className="route">
             <li data-reveal="">
-              <b>01</b>
+              <span className="route-icon"><Icon name="phone" /></span>
+              <p className="route-when">Before</p>
               <h3>Call or send a quote</h3>
               <p>Give us the year, make, and model and what you want done. We’ll get you a price and a time.</p>
             </li>
             <li data-reveal="">
-              <b>02</b>
-              <h3>Drop it off</h3>
+              <span className="route-icon"><Icon name="keys" /></span>
+              <p className="route-when">Drop-off</p>
+              <h3>Bring it by the shop</h3>
               <p>Bring it to {BUSINESS.address.street} at your scheduled time and we’ll pull it into the bay.</p>
             </li>
             <li data-reveal="">
-              <b>03</b>
-              <h3>In the bay</h3>
+              <span className="route-icon"><Icon name="squeegee" /></span>
+              <p className="route-when">In the bay</p>
+              <h3>Film goes on indoors</h3>
               <p>Glass gets cleaned, film gets cut to your windows, and it goes on inside, out of the wind and dust.</p>
             </li>
             <li data-reveal="">
-              <b>04</b>
+              <span className="route-icon"><Icon name="clock" /></span>
+              <p className="route-when">After pickup</p>
               <h3>Let it cure</h3>
               <p>Keep the windows up for a few days. Some haze or small water spots are normal while the film dries out.</p>
             </li>
-          </ol>
+          </ul>
         </div>
       </section>
 

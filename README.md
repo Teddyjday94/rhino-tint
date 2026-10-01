@@ -25,7 +25,7 @@ npm run build
 - `data/business.ts` holds phone, address, hours, Google rating and review count. Change facts here only.
 - `data/media.ts` lists every photo on the site with its caption and alt text. Photos are in `public/images/<category>/` with descriptive file names.
 - `data/reviews.ts` has real Google reviews copied word for word. They show whenever live reviews are off.
-- `data/reels.ts` has the six Facebook reels. The player loads only when someone presses play.
+- `data/reels.ts` has the six Facebook reels and the shop photo shown as each one's cover. The player loads only when someone presses play. To use a real frame from a reel, save it to `public/images/`, add it to `data/media.ts`, and point that reel's `poster` at it.
 - `lib/google-reviews.ts` pulls live Google reviews.
 - `lib/quote.ts` and `app/api/quote/route.ts` handle the quote form.
 
@@ -44,7 +44,7 @@ Requests are validated in the browser and again on the server. To get them by em
 1. Create a free [Resend](https://resend.com) account and verify the sending domain.
 2. Add `RESEND_API_KEY`, `QUOTE_TO_EMAIL`, and `QUOTE_FROM_EMAIL` in Vercel.
 
-Until those are set, requests are logged on the server and the visitor still sees the confirmation, so the form can be demoed safely.
+Until those are set, preview and local builds log requests on the server and show the confirmation so the form can be demoed. The production site instead tells the visitor the request didn't go through and to call, so no quote is lost without anyone knowing.
 
 ## Before launch
 

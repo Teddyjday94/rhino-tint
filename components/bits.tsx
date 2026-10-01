@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BUSINESS } from '@/data/business';
+import { Icon, type IconName } from '@/components/icons';
 
 export function CtaBand({ title, text, quoteHref = '/gallery-contact#quote' }: { title: React.ReactNode; text: string; quoteHref?: string }) {
   return (
@@ -49,4 +50,20 @@ export function faqSchema(items: { q: string; a: string }[]) {
 
 export function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+}
+
+export function Points({ items, style }: { items: { icon: IconName; title: string; text: string }[]; style?: React.CSSProperties }) {
+  return (
+    <ul className="points" style={style}>
+      {items.map((it) => (
+        <li key={it.title}>
+          <span className="pt-icon">
+            <Icon name={it.icon} />
+          </span>
+          <strong>{it.title}</strong>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ul>
+  );
 }

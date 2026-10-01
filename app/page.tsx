@@ -4,7 +4,7 @@ import { Photo, WindowPhoto } from '@/components/photo';
 import { QuoteForm } from '@/components/quote-form';
 import { ReelShowcase } from '@/components/reel-showcase';
 import { GoogleRating, ReviewWall } from '@/components/review-wall';
-import { TintCompare } from '@/components/tint-compare';
+import { Points } from '@/components/bits';
 import { ContactCard } from '@/components/contact-card';
 import { BUSINESS } from '@/data/business';
 import type { MediaKey } from '@/data/media';
@@ -114,27 +114,17 @@ export default function HomePage() {
               <br />
               <span className="red">to a window</span>
             </h2>
-            <ol className="points">
-              <li>
-                <strong>Less heat coming through</strong>
-                <p>Film cuts the sun load through the glass, so the cab or the room heats up slower in a Louisiana summer.</p>
-              </li>
-              <li>
-                <strong>Less glare</strong>
-                <p>Easier on the eyes driving into a low sun, and fewer washed-out TV and computer screens at home.</p>
-              </li>
-              <li>
-                <strong>Privacy</strong>
-                <p>People walking past your truck or your front window see less of what’s inside.</p>
-              </li>
-              <li>
-                <strong>Slower fading</strong>
-                <p>Window film blocks most UV, which is what fades seats, dashboards, floors, and furniture.</p>
-              </li>
-            </ol>
+            <Points
+              items={[
+                { icon: 'heat', title: 'Less heat coming through', text: 'Film cuts the sun load through the glass, so the cab or the room heats up slower in a Louisiana summer.' },
+                { icon: 'glare', title: 'Less glare', text: 'Easier on the eyes driving into a low sun, and fewer washed-out TV and computer screens at home.' },
+                { icon: 'privacy', title: 'Privacy', text: 'People walking past your truck or your front window see less of what’s inside.' },
+                { icon: 'uv', title: 'Slower fading', text: 'Window film blocks most UV, which is what fades seats, dashboards, floors, and furniture.' },
+              ]}
+            />
           </div>
           <div data-reveal="">
-            <TintCompare />
+            <Photo k="stuccoWindow" className="still" caption sizes="(min-width: 900px) 50vw, 100vw" />
           </div>
         </div>
       </section>

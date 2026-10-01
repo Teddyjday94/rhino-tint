@@ -19,7 +19,7 @@ export async function ReviewWall({ limit = 6 }: { limit?: number }) {
     <>
       <div className="reviews">
         {reviews.map((r) => (
-          <figure className="review" key={r.author + r.text.slice(0, 20)} data-reveal="">
+          <figure className="review" key={r.author + r.text.slice(0, 20)}>
             <Stars n={r.rating} />
             <blockquote>
               <p style={{ margin: 0 }}>

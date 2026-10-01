@@ -11,11 +11,21 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
+  const [tuck, setTuck] = useState(false);
 
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 40);
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setSolid(y > 40);
+      // Tuck away on the way down past the hero, come back on any scroll up.
+      if (Math.abs(y - last) > 6) {
+        setTuck(y > last && y > 480);
+        last = y;
+      }
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -28,10 +38,10 @@ export function SiteHeader() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
-  const cls = ['site-header', solid && 'solid', open && 'open'].filter(Boolean).join(' ');
+  const cls = ['site-header', solid && 'solid', open && 'open', tuck && !open && 'tuck'].filter(Boolean).join(' ');
 
   return (
-    <header className={cls}>
+    <header className={cls} onFocusCapture={() => setTuck(false)}>
       <div className="wrap">
         <Link href="/" className="brand" aria-label={`${BUSINESS.name} home`}>
           <Image src={MEDIA.logo.src} alt="" width={46} height={46} priority />

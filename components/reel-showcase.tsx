@@ -1,6 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
+import { MEDIA } from '@/data/media';
 import { REELS, reelEmbedSrc, type Reel } from '@/data/reels';
 
 /**
@@ -37,19 +39,15 @@ export function ReelShowcase({ reels = REELS, title = 'Watch the work' }: { reel
             />
           )}
           {!loaded && (
-            <div className="reel-poster hex-bg">
-              <div>
+            <div className="reel-poster">
+              <Image src={MEDIA[reel.poster].src} alt="" fill sizes="320px" placeholder="blur" />
+              <div className="reel-poster-ui">
                 <button type="button" className="reel-play" onClick={() => pick(active)} aria-label={`Play reel ${active + 1}`}>
                   <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
                     <path d="M6 4l14 8-14 8z" />
                   </svg>
                 </button>
-                <p className="display" style={{ fontSize: '1.8rem' }}>
-                  Reel {String(active + 1).padStart(2, '0')}
-                </p>
-                <p style={{ color: 'var(--muted)', fontSize: '0.9rem', margin: 0 }}>
-                  {showFrame ? 'Loading from Facebook…' : 'Tap play to load it here'}
-                </p>
+                <p style={{ fontSize: '0.9rem', margin: 0 }}>{showFrame ? 'Loading from Facebook…' : 'Tap to play'}</p>
               </div>
             </div>
           )}
@@ -70,9 +68,20 @@ export function ReelShowcase({ reels = REELS, title = 'Watch the work' }: { reel
         <ul className="reel-list">
           {reels.map((r, i) => (
             <li key={r.id}>
-              <button type="button" className="reel-chip hex-bg" aria-pressed={i === active} onClick={() => pick(i)}>
-                <b>{String(i + 1).padStart(2, '0')}</b>
-                <span>{i === active && started ? 'Playing' : 'Play reel'}</span>
+              <button
+                type="button"
+                className="reel-chip"
+                aria-pressed={i === active}
+                aria-label={`Play reel ${i + 1}`}
+                onClick={() => pick(i)}
+              >
+                <Image src={MEDIA[r.poster].src} alt="" fill sizes="110px" />
+                <span>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6 4l14 8-14 8z" />
+                  </svg>
+                  {i === active && started ? 'Playing' : 'Play'}
+                </span>
               </button>
             </li>
           ))}

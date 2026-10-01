@@ -34,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip" href="#main">
           Skip to content
         </a>
+        <div className="scroll-progress" aria-hidden="true" />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />

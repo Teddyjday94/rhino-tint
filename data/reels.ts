@@ -1,10 +1,10 @@
 import type { StaticImageData } from 'next/image';
-import { MEDIA } from '@/data/media';
 import reel1 from '@/public/images/reels/reel-1.jpg';
 import reel2 from '@/public/images/reels/reel-2.jpg';
 import reel3 from '@/public/images/reels/reel-3.jpg';
 import reel4 from '@/public/images/reels/reel-4.jpg';
 import reel5 from '@/public/images/reels/reel-5.jpg';
+import reel6 from '@/public/images/reels/reel-6.jpg';
 
 export interface Reel {
   id: string;
@@ -19,8 +19,7 @@ const reels: [string, StaticImageData][] = [
   ['1658033342606390', reel3],
   ['2561948400915459', reel4],
   ['1103224149083449', reel5],
-  // Shop photo until a frame from this reel is added as public/images/reels/reel-6.jpg.
-  ['1646891020128191', MEDIA.tesla.src],
+  ['1646891020128191', reel6],
 ];
 
 export const REELS: Reel[] = reels.map(([id, poster]) => ({ id, poster, url: `https://www.facebook.com/reel/${id}/` }));

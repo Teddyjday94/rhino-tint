@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { BUSINESS } from '@/data/business';
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '');
+// NEXT_PUBLIC_SITE_URL wins. On Vercel, fall back to the project's production domain.
+const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || (vercelProd ? `https://${vercelProd}` : 'http://localhost:3000')
+).replace(/\/$/, '');
 
 export function pageMetadata(opts: { title: string; description: string; path: string; image?: string }): Metadata {
   const url = `${SITE_URL}${opts.path}`;

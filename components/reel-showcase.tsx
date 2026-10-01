@@ -39,7 +39,7 @@ export function ReelShowcase({ reels = REELS, title = 'Watch the work' }: { reel
           )}
           {!loaded && (
             <div className="reel-poster">
-              <Image src={reel.poster} alt="" fill sizes="320px" placeholder="blur" />
+              <Image src={reel.poster} alt="" fill sizes="320px" quality={90} placeholder="blur" />
               <div className="reel-poster-ui">
                 <button type="button" className="reel-play" onClick={() => pick(active)} aria-label={`Play reel ${active + 1}`}>
                   <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
@@ -74,7 +74,7 @@ export function ReelShowcase({ reels = REELS, title = 'Watch the work' }: { reel
                 aria-label={`Play reel ${i + 1}`}
                 onClick={() => pick(i)}
               >
-                <Image src={r.poster} alt="" fill sizes="110px" />
+                <Image src={r.poster} alt="" fill sizes="(min-width: 900px) 270px, (min-width: 560px) 16vw, 33vw" quality={90} />
                 <span>
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M6 4l14 8-14 8z" />

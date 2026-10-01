@@ -62,7 +62,7 @@ export default function HomeBusinessPage() {
 
       <section className="section paper" aria-labelledby="home">
         <div className="wrap split split-wide-right">
-          <div data-reveal="">
+          <div>
             <p className="eyebrow">For your home</p>
             <h2 id="home">
               The room you
@@ -111,7 +111,7 @@ export default function HomeBusinessPage() {
                 { icon: 'uv', title: 'Fading', text: 'Window film blocks most UV light, one of the main causes of faded floors, rugs, and furniture.' },
               ]}
             />
-            <div data-reveal="">
+            <div>
               <Photo k="transomReflective" className="still" caption sizes="(min-width: 900px) 50vw, 100vw" />
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function HomeBusinessPage() {
             <Image src={MEDIA.officeStorefront.src} alt={MEDIA.officeStorefront.alt} fill sizes="(min-width: 900px) 55vw, 100vw" placeholder="blur" style={{ objectFit: 'cover' }} />
             <figcaption>{MEDIA.officeStorefront.caption}</figcaption>
           </figure>
-          <div data-reveal="">
+          <div>
             <p className="eyebrow">For your business</p>
             <h2 id="biz">
               Storefronts

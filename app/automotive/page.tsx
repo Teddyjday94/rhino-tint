@@ -70,7 +70,7 @@ export default function AutomotivePage() {
 
       <section className="section">
         <div className="wrap split split-wide-left">
-          <div data-reveal="">
+          <div>
             <p className="eyebrow">Why tint your vehicle</p>
             <h2>
               A cooler cab
@@ -86,7 +86,7 @@ export default function AutomotivePage() {
               ]}
             />
           </div>
-          <div className="meet-photo" data-reveal="">
+          <div className="meet-photo">
             <Photo k="silveradoHd" sizes="(min-width: 900px) 42vw, 100vw" caption parallax={12} />
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function AutomotivePage() {
             <p className="lead">These are the three things we’ll ask about when you book. Not sure yet? We’ll help you sort it out.</p>
           </div>
           <div className="options">
-            <div className="option" data-reveal="">
+            <div className="option">
               <div className="shade-bar" aria-hidden="true" />
               <h3>Shade</h3>
               <p>
@@ -114,7 +114,7 @@ export default function AutomotivePage() {
                 dark the front windows can go, and we’ll show you where that line is.
               </p>
             </div>
-            <div className="option" data-reveal="">
+            <div className="option">
               <div className="shade-bar" aria-hidden="true" style={{ background: 'linear-gradient(90deg, #d8232a, #2a2d33)' }} />
               <h3>Film</h3>
               <p>
@@ -122,7 +122,7 @@ export default function AutomotivePage() {
                 which line fits what you care about most and your budget.
               </p>
             </div>
-            <div className="option" data-reveal="">
+            <div className="option">
               <div className="shade-bar" aria-hidden="true" style={{ background: 'repeating-linear-gradient(90deg, #fff 0 18%, transparent 18% 22%)' }} />
               <h3>Coverage</h3>
               <p>
@@ -141,25 +141,25 @@ export default function AutomotivePage() {
             From call <span className="red">to pickup</span>
           </h2>
           <ul className="route">
-            <li data-reveal="">
+            <li>
               <span className="route-icon"><Icon name="phone" /></span>
               <p className="route-when">Before</p>
               <h3>Call or send a quote</h3>
               <p>Give us the year, make, and model and what you want done. We’ll get you a price and a time.</p>
             </li>
-            <li data-reveal="">
+            <li>
               <span className="route-icon"><Icon name="keys" /></span>
               <p className="route-when">Drop-off</p>
               <h3>Bring it by the shop</h3>
               <p>Bring it to {BUSINESS.address.street} at your scheduled time and we’ll pull it into the bay.</p>
             </li>
-            <li data-reveal="">
+            <li>
               <span className="route-icon"><Icon name="squeegee" /></span>
               <p className="route-when">In the bay</p>
               <h3>Film goes on indoors</h3>
               <p>Glass gets cleaned, film gets cut to your windows, and it goes on inside, out of the wind and dust.</p>
             </li>
-            <li data-reveal="">
+            <li>
               <span className="route-icon"><Icon name="clock" /></span>
               <p className="route-when">After pickup</p>
               <h3>Let it cure</h3>

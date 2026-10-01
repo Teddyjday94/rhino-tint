@@ -28,6 +28,7 @@ npm run build
 - `data/reels.ts` has the six Facebook reels and the shop photo shown as each one's cover. The player loads only when someone presses play. To use a real frame from a reel, save it to `public/images/`, add it to `data/media.ts`, and point that reel's `poster` at it.
 - `lib/google-reviews.ts` pulls live Google reviews.
 - `lib/quote.ts` and `app/api/quote/route.ts` handle the quote form.
+- `components/motion.tsx` runs the scroll animations. It tags headings, photos, and list items automatically (see the `AUTO` and `STAGGER` lists at the top), and the styles for each reveal are under "motion" in `app/globals.css`. Visitors who turn on reduced motion get a still page.
 
 ## Live Google reviews
 

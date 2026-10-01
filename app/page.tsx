@@ -107,7 +107,7 @@ export default function HomePage() {
 
       <section className="section steel hex-bg">
         <div className="wrap split split-wide-right">
-          <div data-reveal="">
+          <div>
             <p className="eyebrow">Why people tint</p>
             <h2>
               What film does
@@ -123,7 +123,7 @@ export default function HomePage() {
               ]}
             />
           </div>
-          <div data-reveal="">
+          <div>
             <Photo k="stuccoWindow" className="still" caption sizes="(min-width: 900px) 50vw, 100vw" />
           </div>
         </div>
@@ -162,10 +162,10 @@ export default function HomePage() {
 
       <section className="section paper" style={{ paddingTop: 0 }} aria-labelledby="meet">
         <div className="wrap split">
-          <div className="meet-photo" data-reveal="">
+          <div className="meet-photo">
             <Photo k="family" sizes="(min-width: 900px) 45vw, 100vw" parallax={12} />
           </div>
-          <div data-reveal="">
+          <div>
             <p className="eyebrow">Meet Rhino</p>
             <h2 id="meet">
               The people

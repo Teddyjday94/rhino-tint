@@ -25,7 +25,7 @@ npm run build
 - `data/business.ts` holds phone, address, hours, Google rating and review count. Change facts here only.
 - `data/media.ts` lists every photo on the site with its caption and alt text. Photos are in `public/images/<category>/` with descriptive file names.
 - `data/reviews.ts` has real Google reviews copied word for word. They show whenever live reviews are off.
-- `data/reels.ts` has the six Facebook reels and the shop photo shown as each one's cover. The player loads only when someone presses play. To use a real frame from a reel, save it to `public/images/`, add it to `data/media.ts`, and point that reel's `poster` at it.
+- `data/reels.ts` has the six Facebook reels and a frame from each (in `public/images/reels/`) shown as its cover. The player loads only when someone presses play.
 - `lib/google-reviews.ts` pulls live Google reviews.
 - `lib/quote.ts` and `app/api/quote/route.ts` handle the quote form.
 - `components/motion.tsx` runs the scroll animations. It tags headings, photos, and list items automatically (see the `AUTO` and `STAGGER` lists at the top), and the styles for each reveal are under "motion" in `app/globals.css`. Visitors who turn on reduced motion get a still page.

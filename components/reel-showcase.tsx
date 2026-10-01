@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { MEDIA } from '@/data/media';
 import { REELS, reelEmbedSrc, type Reel } from '@/data/reels';
 
 /**
@@ -40,7 +39,7 @@ export function ReelShowcase({ reels = REELS, title = 'Watch the work' }: { reel
           )}
           {!loaded && (
             <div className="reel-poster">
-              <Image src={MEDIA[reel.poster].src} alt="" fill sizes="320px" placeholder="blur" />
+              <Image src={reel.poster} alt="" fill sizes="320px" placeholder="blur" />
               <div className="reel-poster-ui">
                 <button type="button" className="reel-play" onClick={() => pick(active)} aria-label={`Play reel ${active + 1}`}>
                   <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
@@ -75,7 +74,7 @@ export function ReelShowcase({ reels = REELS, title = 'Watch the work' }: { reel
                 aria-label={`Play reel ${i + 1}`}
                 onClick={() => pick(i)}
               >
-                <Image src={MEDIA[r.poster].src} alt="" fill sizes="110px" />
+                <Image src={r.poster} alt="" fill sizes="110px" />
                 <span>
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M6 4l14 8-14 8z" />
